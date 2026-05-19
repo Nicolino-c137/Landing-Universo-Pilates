@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* ===== DESIGN TOKENS — ORGÁNICO & CÁLIDO ===== */
+:root {
+  --color-primary:       #B87D5E;  /* terracotta */
+  --color-primary-dark:  #9A6548;  /* terracotta oscuro */
+  --color-secondary:     #7A5C47;  /* tierra profunda */
+  --color-surface:       #F5F0E8;  /* crema */
+  --color-surface-low:   #EDE5D8;  /* beige medio */
+  --color-surface-high:  #D4C4B0;  /* separador */
+  --color-on-surface:    #2A1A0E;  /* texto oscuro cálido */
+  --color-on-surface-muted: #6B5241;
+  --color-on-primary:    #FFFFFF;
+  --nav-blur: 20px;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: 'Nunito', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ===== TIPOGRAFÍA FLUID ===== */
+.heading-display {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.heading-xl {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: .95;
+  font-weight: 400;
+}
+
+.heading-lg {
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.heading-md {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+/* ===== SECCIÓN BASE ===== */
+.section-padding {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+/* ===== CONTENEDOR CENTRADO ===== */
+/* Solo centra horizontalmente — el espaciado vertical lo maneja la <section> */
+.section-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-container { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .section-container { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ===== CARDS ===== */
+.card {
+  background-color: var(--color-surface-low);
+  border: 1px solid var(--color-surface-high);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(42, 26, 14, 0.1);
+}
+
+/* ===== SEPARATOR ===== */
+.divider {
+  width: 3rem;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin: 1rem auto;
+}
+
+/* ===== FADE-IN (animaciones GSAP) ===== */
+/* Sin estado inicial en CSS: GSAP lo setea antes de animar.
+   Si GSAP no carga, los elementos son visibles por defecto. */
+
+/* ===== WHATSAPP FLOTANTE ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  background-color: #25D366;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+}

@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import profeImg from '../assets/images/profe.jpg';
+---
+
+<section id="sobre-nosotros" class="section-padding" style="background-color: var(--color-surface-low);">
+  <div class="max-w-screen-xl mx-auto px-6 section-container">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Imagen -->
+      <div class="fade-in order-2 md:order-1">
+        <div class="relative">
+          <Image
+            src={profeImg}
+            alt="Kinesióloga Fernanda Morales, instructora certificada de Pilates Clásico"
+            loading="lazy"
+            class="w-full h-auto object-cover rounded-[var(--radius-lg)]"
+            style="max-height: 600px; object-fit: cover;"
+          />
+          <!-- Badge -->
+          <div
+            class="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 px-5 py-3 rounded-[var(--radius-md)] text-sm font-semibold uppercase tracking-wider"
+            style="background-color: var(--color-primary); color: var(--color-on-primary); padding: .3rem .3rem;"
+          >
+            Authentic Pilates
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="fade-in order-1 md:order-2">
+        <p class="text-sm uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-primary); margin-bottom: 1.5rem;">
+          Sobre Nosotros
+        </p>
+        <h2 class="heading-xl mb-6" style="color: var(--color-on-surface); margin-bottom: 1.5rem;">
+          El método original.<br />La fuente del movimiento.
+        </h2>
+        <div class="divider" style="margin: 0 0 1.5rem 0;"></div>
+
+        <div class="space-y-4 body-lg" style="color: var(--color-on-surface-muted); margin-bottom: 1rem;">
+          <p style="margin-bottom: 1rem;">
+            Entrenar Pilates Clásico es volver a la fuente. Desde Joseph, hasta este siglo seguimos trabajando cada movimiento con <strong style="color: var(--color-on-surface);">intención, precisión y respeto por el método original.</strong>
+          </p>
+          <p style="margin-bottom: 1rem;">
+            En nuestro estudio priorizamos las clases individuales y personalizadas, porque cada cuerpo necesita algo distinto.
+          </p>
+          <p>
+            Si querés mejorar tu postura, fortalecer tu centro y moverte con libertad… este es tu lugar.
+          </p>
+        </div>
+
+        <!-- Profe -->
+        <div
+          class="mt-8 p-5 rounded-[var(--radius-md)]"
+          style="background-color: var(--color-surface); border: 1px solid var(--color-surface-high); padding: .3rem .3rem; margin-bottom: 1rem;"
+        >
+          <p class="font-semibold text-base" style="color: var(--color-on-surface);">Fernanda Morales</p>
+          <p class="text-sm mt-1" style="color: var(--color-on-surface-muted);">
+            Kinesióloga · Instructora certificada por Authentic Pilates
+          </p>
+        </div>
+
+        <!-- Aparatos -->
+        <div class="mt-8">
+          <p class="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-on-surface-muted); margin-bottom: .5rem">
+            Trabajamos con
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['Reformer', 'Mat', 'Wunda Chair', 'Electric Chair', 'Cadillac'].map(aparato => (
+              <span
+                class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full"
+                style="background-color: var(--color-surface-high); color: var(--color-secondary); padding: .3rem .3rem;"
+              >
+                {aparato}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

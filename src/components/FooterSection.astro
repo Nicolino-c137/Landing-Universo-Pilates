@@ -1,0 +1,94 @@
+---
+const navLinks = [
+  { href: '#sobre-nosotros', label: 'Nosotros' },
+  { href: '#clases',         label: 'Clases' },
+  { href: '#galeria',        label: 'Galería' },
+  { href: '#testimonios',    label: 'Testimonios' },
+  { href: '#horarios',       label: 'Horarios' },
+  { href: '#contacto',       label: 'Contacto' },
+];
+---
+
+<footer style="background-color: var(--color-on-surface); color: var(--color-surface); padding-top: 1.5rem; padding-bottom: 1.5rem;">
+  <div class="max-w-screen-xl mx-auto px-6 py-14 section-container">
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Logo y claim -->
+      <div>
+        <a href={import.meta.env.BASE_URL} aria-label="Inicio">
+          <img src={`${import.meta.env.BASE_URL}/logo.svg`} alt="Universo Pilates Clásico" class="h-20 w-auto mb-4" style="filter: brightness(0) invert(1);" />
+        </a>
+        <p class="text-sm leading-relaxed" style="color: rgba(245,240,232,0.6);">
+          Pilates Clásico en Mendoza.<br />
+          Clases individuales y personalizadas.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <nav aria-label="Navegación del footer">
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style="color: rgba(245,240,232,0.4);">
+          Navegación
+        </p>
+        <ul class="space-y-2">
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm transition-opacity hover:opacity-70"
+                style="color: rgba(245,240,232,0.8);"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Contacto -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style="color: rgba(245,240,232,0.4);">
+          Contacto
+        </p>
+        <ul class="space-y-3 text-sm" style="color: rgba(245,240,232,0.8);">
+          <li style="margin-bottom: .3rem;">
+            <a
+              href="https://wa.me/5492617581623"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-70 transition-opacity"
+            >
+              +54 261 758-1623
+            </a>
+          </li>
+          <li style="margin-bottom: .3rem;">
+            <a
+              href="https://www.instagram.com/universopilatesclasico/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-70 transition-opacity"
+            >
+              @universopilatesclasico
+            </a>
+          </li>
+          <li style="color: rgba(245,240,232,0.6); margin-bottom: .3rem;">
+            Gral. Espejo 65 PB Oficina 6<br />
+            M5500 Mendoza
+          </li>
+          <li style="color: rgba(245,240,232,0.6); margin-bottom: .3rem;">
+            Lun–Vie · 07:00 a 20:00
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Línea inferior -->
+    <div
+      class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs"
+      style="border-top: 1px solid rgba(255,255,255,0.1); color: rgba(245,240,232,0.4);"
+    >
+      <p>© {new Date().getFullYear()} Universo Pilates Clásico. Todos los derechos reservados.</p>
+      <p>Mendoza, Argentina</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,48 @@
+---
+import { testimonios } from '../data/testimonios';
+---
+
+<section id="testimonios" class="section-padding" style="background-color: var(--color-on-surface); color: var(--color-surface);">
+  <div class="max-w-screen-xl mx-auto px-6 section-container">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-primary); margin-bottom: 1.5rem;">
+        Testimonios
+      </p>
+      <h2 class="heading-xl" style="color: var(--color-surface); margin-bottom: 1.5rem;">
+        Lo que dicen nuestros alumnos.
+      </h2>
+      <div class="divider" style="margin-bottom: 1.5rem;"></div>
+    </div>
+
+    <!-- Grid de testimonios -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+      {testimonios.map(t => (
+        <article class="fade-in p-7 rounded-[var(--radius-lg)] flex flex-col gap-4" style="background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: .5rem .5rem;">
+
+          <!-- Estrellas -->
+          <div class="flex gap-1 justify-center" aria-label={`${t.estrellas} estrellas`}>
+            {Array.from({ length: t.estrellas }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+
+          <!-- Texto -->
+          <blockquote class="text-sm leading-relaxed flex-1" style="color: rgba(245,240,232,0.8);">
+            "{t.texto}"
+          </blockquote>
+
+          <!-- Nombre -->
+          <footer>
+            <p class="text-sm font-semibold" style="color: var(--color-surface);">{t.nombre}</p>
+          </footer>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+import { clases } from '../data/clases';
+---
+
+<section id="clases" class="section-padding" style="background-color: var(--color-surface);">
+  <div class="max-w-screen-xl mx-auto px-6 section-container">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-primary); margin-bottom: 1.5rem;">
+        Nuestras Clases
+      </p>
+      <h2 class="heading-xl" style="color: var(--color-on-surface); margin-bottom: 1.5rem;">
+        Un método, cinco aparatos.
+      </h2>
+      <div class="divider" style="margin-bottom: 1.5rem;"></div>
+      <p class="body-lg max-w-6xl mx-auto mt-4" style="color: var(--color-on-surface-muted); margin-bottom: 1.5rem;">
+        Utilizamos el equipamiento completo del Pilates Clásico para ofrecerte una experiencia integral y personalizada.
+      </p>
+    </div>
+
+    <!-- Carrusel de clases -->
+    <div class="classes-scroll fade-in text-center" role="list" style="margin-bottom: 2rem;">
+      {clases.map((clase, i) => (
+        <article class="classes-card card p-8" role="listitem" style="padding: .5rem .5rem;">
+          <span
+            class="text-5xl font-bold select-none"
+            style="font-family: 'Cormorant Garamond', serif; color: var(--color-surface-high);"
+            aria-hidden="true"
+          >
+            {String(i + 1).padStart(2, '0')}
+          </span>
+
+          <h3 class="heading-md mt-4 mb-2" style="color: var(--color-on-surface);">
+            {clase.nombre}
+          </h3>
+          <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: var(--color-primary);">
+            {clase.descripcion}
+          </p>
+          <p class="text-sm leading-relaxed" style="color: var(--color-on-surface-muted);">
+            {clase.detalle}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA central -->
+    <div class="text-center mt-12 fade-in">
+      <p class="body-lg mb-6" style="color: var(--color-on-surface-muted); margin-bottom: 1.5rem;">
+        Si querés sentirte único y disfrutar de los beneficios del método, escribinos y empezá hoy.
+      </p>
+      <a
+        href="https://wa.me/5492617581623?text=Hola!%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20clases%20de%20Universo%20Pilates%20Cl%C3%A1sico."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        Consultar por clases
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .classes-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1.5rem;
+    padding-bottom: 0.75rem;
+    /* Scrollbar estilizada */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-surface-high) transparent;
+    /* Peek del siguiente card en mobile */
+    padding-right: 2rem;
+  }
+
+  .classes-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+  .classes-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .classes-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--color-surface-high);
+    border-radius: 99px;
+  }
+
+  .classes-card {
+    flex-shrink: 0;
+    width: 270px;
+    scroll-snap-align: start;
+  }
+
+  /* En pantallas grandes las 5 cards se reparten el ancho */
+  @media (min-width: 1200px) {
+    .classes-scroll {
+      overflow-x: visible;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+    .classes-card {
+      flex: 1 1 0;
+      width: auto;
+      min-width: 0;
+    }
+  }
+</style>

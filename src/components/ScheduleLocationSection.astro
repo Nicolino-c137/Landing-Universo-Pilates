@@ -1,0 +1,94 @@
+---
+const horarios = [
+  { dia: 'Lunes a Viernes', hora: '07:00 — 20:00' },
+];
+
+const direccion = {
+  calle: 'Gral. Espejo 65',
+  detalle: 'PB Oficina 6',
+  ciudad: 'M5500 Mendoza',
+};
+
+const mapsUrl = 'https://maps.google.com/?q=Gral.+Espejo+65+Mendoza+Argentina';
+---
+
+<section id="horarios" class="section-padding" style="background-color: var(--color-surface);">
+  <div class="max-w-screen-xl mx-auto px-6 section-container">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-primary); margin-bottom: 1.5rem;">
+        Dónde y Cuándo
+      </p>
+      <h2 class="heading-xl" style="color: var(--color-on-surface); margin-bottom: 1.5rem;">
+        Horarios & Ubicación.
+      </h2>
+      <div class="divider" style="margin-bottom: 1.5rem;"></div>
+    </div>
+
+    <div class="flex justify-center">
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl items-stretch">
+
+        <!-- Horarios -->
+        <div class="card p-8 fade-in text-center" style="padding: .5rem .5rem;">
+          <div class="flex justify-center mb-4">
+            <div class="p-3 rounded-[var(--radius-sm)]" style="background-color: var(--color-surface-high);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="color: var(--color-primary);">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="heading-md mb-6" style="color: var(--color-on-surface);">Horarios</h3>
+
+          <dl class="space-y-3">
+            {horarios.map(h => (
+              <div class="py-3" style="border-bottom: 1px solid var(--color-surface-high);">
+                <dt class="font-semibold text-sm mb-1" style="color: var(--color-on-surface);">{h.dia}</dt>
+                <dd class="text-sm font-bold" style="color: var(--color-primary);">{h.hora}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <p class="mt-6 text-xs" style="color: var(--color-on-surface-muted);">
+            Los horarios se coordinan de forma personalizada. Consultanos por disponibilidad.
+          </p>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="card p-8 fade-in text-center" style="padding: .5rem .5rem;">
+          <div class="flex justify-center mb-4">
+            <div class="p-3 rounded-[var(--radius-sm)]" style="background-color: var(--color-surface-high);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="color: var(--color-primary);">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="heading-md mb-6" style="color: var(--color-on-surface);">Ubicación</h3>
+
+          <address class="not-italic space-y-1 mb-6">
+            <p class="text-base font-semibold" style="color: var(--color-on-surface);">{direccion.calle}</p>
+            <p class="text-sm" style="color: var(--color-on-surface-muted);">{direccion.detalle}</p>
+            <p class="text-sm" style="color: var(--color-on-surface-muted);">{direccion.ciudad}</p>
+          </address>
+
+          <div class="flex justify-center">
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline text-sm"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import galeria1 from '../assets/images/galeria1.jpg';
+import galeria2 from '../assets/images/galeria2.jpg';
+import galeria3 from '../assets/images/galeria3.jpg';
+import galeria4 from '../assets/images/galeria4.jpg';
+
+const imagenes = [
+  { src: galeria1, alt: 'Electric Chair' },
+  { src: galeria2, alt: 'Aparatos de Pilates Clásico — Reformer' },
+  { src: galeria3, alt: 'Sesión Mat de Pilates con instrucción personalizada' },
+  { src: galeria4, alt: 'Aparatos de Pilates Clásico — Cadillac' },
+];
+---
+
+<section id="galeria" class="section-padding" style="background-color: var(--color-surface-low);">
+  <div class="max-w-screen-xl mx-auto px-6 section-container">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-12 fade-in">
+      <p class="text-sm uppercase tracking-[0.2em] font-semibold mb-4" style="color: var(--color-primary); margin-bottom: 1.5rem;">
+        Galería
+      </p>
+      <h2 class="heading-xl" style="color: var(--color-on-surface); margin-bottom: 1.5rem;">
+        Un poco de lo que hacemos
+      </h2>
+      <div class="divider" style="margin-bottom: 1.5rem;"></div>
+    </div>
+
+    <!-- Grid 4 imágenes iguales -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {imagenes.map((img) => (
+        <div class="fade-in overflow-hidden rounded-[var(--radius-lg)] gallery-item">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            class="img-card w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gallery-item {
+    aspect-ratio: 1 / 1;
+  }
+
+  .img-card {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0.15);
+    transition: filter 0.4s ease, transform 0.4s ease;
+  }
+  .gallery-item:hover .img-card {
+    filter: grayscale(0);
+    transform: scale(1.04);
+  }
+</style>
